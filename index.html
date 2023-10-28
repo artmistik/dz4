@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваша сторінка</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #1a1a4a, #6e42c1);
+            color: #fff;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .popup-icon {
+            float: right;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #open-popup {
+            color: #fff;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="popup" id="popup">
+    <span class="popup-icon" id="close-popup"><i class="fas fa-times"></i></span>
+    <p>Вміст вашого повідомлення тут</p>
+</div>
+
+<button id="open-popup"><i class="fas fa-info-circle"></i></button>
+
+<script>
+    $(document).ready(function () {
+        $("#open-popup").click(function () {
+            $("#popup").fadeIn();
+            $("#open-popup").fadeOut();
+            $("#popup").css({
+                'background': 'rgba(58, 58, 58, 0.8)',
+                'box-shadow': '0 0 10px rgba(0, 0, 0, 0.3)',
+                'backdrop-filter': 'blur(5px)'
+            });
+        });
+
+        $("#close-popup").click(function () {
+            $("#popup").fadeOut();
+            $("#open-popup").fadeIn();
+        });
+    });
+</script>
+
+</body>
+</html>
